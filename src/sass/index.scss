@@ -1,58 +1,335 @@
 @charset "utf-8";
 
-$view:75;
+$--border: 1px solid #ECECEC;
 
-// 字体用PX
-@mixin font-dpr($font-size){
-    font-size: $font-size;
+i {
+    display: inline-block;
+}
 
-    [data-dpr="2"] & {
-        font-size: $font-size * 2;
+.nav {
+    height: 61px;
+    background: #fff;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.nav-left {
+    padding-left: 30px;
+    height: 100%;
+    float: left;
+}
+
+.nav-right {
+    padding-right: 30px;
+    padding-top: 9px;
+    float: right;
+}
+
+.nav-item {
+    cursor: pointer;
+    height: 100%;
+    font-size: 16px;
+    color: #666;
+    padding-top: 19px;
+    float: left;
+
+    &.is-active {
+        color: #0099CC;
+        border-bottom: 2px solid #0099CC;
     }
 
-    [data-dpr="3"] & {
-        font-size: $font-size * 3;
+    &.has-margin {
+        margin-left: 55px;
     }
 }
 
-.body{
-	@include font-dpr(16px);
+.kf-btn {
+    padding: 7.5px 18px;
+    border-radius: 2px;
+    border: 1px solid #E4E4E4;
+    cursor: pointer;
+
+    &:active {
+        opacity: .7;
+        filter: alpha(opacity=70);
+    }
+}
+
+.kf-btn__icon {
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+    margin-right: 5px;
+
+}
+
+.kf-btn__text {
+    font-size: 16px;
+    color: #666;
+    vertical-align: middle;
+}
+
+.main-top {
+    position: relative;
+
+}
+
+.search__wrapper {
+    padding-top: 56px;
+    padding-bottom: 14px;
+}
+
+.search__inner {
+    margin: 0 auto;
+    height: 54px;
+    width: 520px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.06);
+    border-radius: 2px;
+    border: 1px solid #E4E4E4;
+
+    &.is-active {
+        border: 1px solid #0099CC;
+    }
+}
+
+.search {
+    width: 441px;
+}
+
+.search__left {
+    padding: 18px 15px 0 20px;
+    float: left;
+}
+
+.search__middle {
+    float: left;
+    position: relative;
+}
+
+.search__icon {
+    width: 18px;
+    height: 18px;
+}
+
+.search__input {
+    position: relative;
+    font-size: 16px;
+    color: #000;
+    border: none;
+    outline: none;
+    height: 52px;
+    line-height: 52px;
+    width: 360px;
+}
+
+.search-history {}
+
+.search__right {
+    width: 80px;
+    height: 100%;
+    padding-top: 13px;
+    text-align: center;
+    border-radius: 0px 2px 2px 0px;
+    background: #0099CC;
+    float: right;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:active {
+        opacity: .7;
+        filter: alpha(opacity=70);
+    }
+}
+
+.search-relate {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.06);
+    border: 1px solid #DDDDDD;
+    padding-top: 16px;
+    left: -35px;
+    top: 40px;
+}
+
+.search-relate__item {
+    width: 480px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 16px;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tag__item {
+    cursor: pointer;
+    float: left;
+    height: 43px;
+    border-radius: 2px;
+    border: 1px solid #E4E4E4;
+    padding: 9px 19px 0 19px;
+    margin-right: 11px;
+    font-size: 14px;
+    color: #666;
+
+    &.is-last {
+        margin-right: 0;
+    }
+}
+
+.tag__wrapper {
+    margin: 0 auto;
+    width: 520px;
+    margin-bottom: 17px;
+}
+
+.common-problem {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.common-problem__header {
+    margin-bottom: 15px;
+}
+
+.common-problem__icon {
+    width: 20px;
+    height: 25px;
+    margin-right: 16px;
+}
+
+.common-problem__title {
+    display: inline;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.common-problem__main {
+    // border-right: 1px solid #ECECEC;
+    // border-left: 1px solid #ECECEC;
+}
+
+.common-problem__nav {
+    border-right: 1px solid #ECECEC;
+}
+
+.common-problem__nav-item {
+    cursor: pointer;
+    float: left;
+    width: 128px;
+    border-top: 1px solid #ECECEC;
+    border-left: 1px solid #ECECEC;
+    border-bottom: 1px solid #ECECEC;
+    height: 60px;
+    text-align: center;
+    padding-top: 18px;
+    background: #fafafa;
+    font-size: 15px;
+    color: #666;
+
+    &.is-last {
+        border-right: 1px solid #ECECEC;
+    }
+
+    &.is-active {
+        border-bottom: none;
+        background: #fff;
+        color: #0099CC;
+        font-weight: 600;
+        border-top: 2px solid #0099CC;
+    }
+}
+
+.common-problem__item {
+    cursor: pointer;
+    border: 1px solid #ECECEC;
+    border-top: none;
+    height: 60px;
+    padding-top: 18px;
+}
+
+.common-problem__left {
+    float: left;
+    color: #0099CC;
+    text-align: center;
+    width: 55px;
+    font-size: 16px;
+}
+
+.common-problem__middle {
+    float: left;
+    font-size: 16px;
+    color: #000;
+    width: 647px;
+}
+
+.common-problem__right {
+    float: right;
+    font-size: 14px;
+    color: #AFAFAF;
+    padding-right: 20px;
+
+    span {
+        color: #0099CC;
+    }
 }
 
 
-body{
-	background: #f8f8f8; 
-	-webkit-overflow-scrolling:touch;
+.problem-list {
+    width: 900px;
+    margin: 0 auto;
 }
-.g-body{
-	overflow: hidden;
+.problem-list__header{
+    padding-bottom: 18px;border-bottom: $--border;
 }
-/**
- * 头部
- */
-.g-header{
-	background: #fff;
-	height: 110rem/$view;
-	margin:12rem/$view 0;
-	padding: 0 20rem/$view; 
-	overflow: hidden;
+
+.problem-list__title {
+    color: #000;
+    font-size: 20px;
+    float: left;
 }
-.mkf-icon{
-	width: 50rem/$view;
-	height: 50rem/$view;
-	background: url('../images/mkfIcon.png') no-repeat center top;
-	background-size: 100% auto;
-	display: block;
-	float: left;
-	vertical-align: middle;
-	margin-top: 28rem/$view;
+
+.problem-list__clean {
+    color: #666;
+    font-size: 14px;
+    float: right;
+    cursor: pointer;
 }
-.header-title{
-	font-size: 26rem/$view;
-	line-height:110rem/$view;
-	float: left;
-	padding-left: 28rem/$view;
-	color: #1d1d1d;
-	font-weight: bold;
-	text-align: left;
+
+.problem-list__left{
+    float: left;
+    font-size: 16px;
+    color: #696969;
+    width: 647px;
+}
+
+.problem-list__right {
+    float: right;
+    font-size: 14px;
+    color: #AFAFAF;
+
+    span {
+        color: #0099CC;
+    }
+}
+
+.problem-list__item {
+    cursor: pointer;
+    border-bottom: $--border;
+    height: 60px;
+    padding-top: 18px;
+}
+
+.problem-detail{
+    padding: 15px 14px;border-right:$--border;border-left:$--border;border-bottom:$--border;
+}
+
+.problem-detail__content{
+    font-size: 16px;color: #696969;margin-bottom: 32px;
+}
+.problem-detail__tips{
+    span{
+       font-size:14px;color: #000; 
+    }
 }

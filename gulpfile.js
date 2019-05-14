@@ -47,6 +47,9 @@ gulp.task('mini-html', function() {
     }))
     .pipe(replace(/\.\.\/(js\/\S+\.(js))/g,function(all,str){
            return (cdn+str);  
+    }))
+    .pipe(replace(/\.\.\/(libs\/\S+\.(js))/g,function(all,str){
+           return (cdn+str);  
     }))   
     .pipe(htmlmin({
           removeComments: true,       //清除HTML注释
@@ -124,14 +127,24 @@ gulp.task('mini-js', function() {
         .pipe(gulp.dest('dist/js/'))
 })
 
-var middleware = proxyMiddleware('/api', {
+/* 
+* libs压缩
+*/
+gulp.task('mini-libs-js', function() {
+    return gulp.src('src/libs/**')
+        .pipe(miniJS())
+        .pipe(gulp.dest('dist/libs/'))
+})
+
+var middleware = proxyMiddleware('/CRMAPI', {
     target: proxyTarget,
     changeOrigin: true,
     pathRewrite: {
-    '^/api': ''
+    '^/CRMAPI': '/CRMAPI'
     },
     logLevel: 'debug'
 })
+
 
 
 /*自动刷新*/
@@ -159,7 +172,8 @@ gulp.task('default', [
     'sass_dev',
     'server',
 ], function() {
-    gulp.watch('src/html/*.html', reload);
+    gulp.watch('src/html/*.html',['html_dev']);
+    gulp.watch('src/html/include/*.html', ['html_dev']);
     gulp.watch('src/js/**',reload);
     gulp.watch('src/sass/*.scss',['sass_dev']);
 })
@@ -171,6 +185,7 @@ gulp.task('release', [
     'mini-html', 
     'mini-css',
     'mini-js',
+    'mini-libs-js',
     'images',
 ], function() {
     

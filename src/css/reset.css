@@ -1,29 +1,77 @@
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  box-sizing: border-box; }
 
 html {
   -webkit-text-size-adjust: none; }
 
 body {
   background: #fff;
-  font: 12px/2em Microsoft Yahei,tahoma,HELVETICA;
-  text-align: center; }
+  font: 12px/2em Microsoft Yahei, tahoma, HELVETICA; }
 
-ol, ul, li {
+ol,
+ul,
+li {
   list-style: none; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 100%; }
 
 img {
   border: none;
   vertical-align: top; }
 
-i, em {
+i,
+em {
   font-style: normal; }
 
-input, select, option, textarea {
+input,
+select,
+option,
+textarea {
   font-size: 12px; }
 
 a {
@@ -33,19 +81,28 @@ a {
 a:hover {
   text-decoration: none; }
 
-noscript, .spanclass, .pannel, .hidden {
+noscript,
+.spanclass,
+.pannel,
+.hidden {
   display: none; }
 
-.show, .block {
+.show,
+.block {
   display: block; }
 
-.mark, .fl, .mark-sub, .fr {
+.mark,
+.fl,
+.mark-sub,
+.fr {
   display: inline; }
 
-.mark, .fl {
+.mark,
+.fl {
   float: left; }
 
-.mark-sub, .fr {
+.mark-sub,
+.fr {
   float: right; }
 
 .fs-14 {
@@ -74,3 +131,8 @@ noscript, .spanclass, .pannel, .hidden {
 button {
   -webkit-appearance: none;
   border-radius: 0; }
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }

@@ -1,0 +1,16 @@
+.pb-header {
+  height: 60px;
+  background-color: #0099CC;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding-top: 18px;
+  color: #fff; }
+
+.pb-header__right {
+  float: right;
+  padding-right: 30px; }
+
+.pb-header__logo {
+  width: 82px;
+  height: 24px; }
