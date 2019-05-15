@@ -12,9 +12,9 @@
     <meta http-equiv="Cache-Control" content="max-age=60" />
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <title>帮助中心</title>
-    <script type="text/javascript" src="../libs/jquery-1.8.1.min.js"></script>
+    <title>帮助中心</title>  
 </head>
 
 <body>
@@ -27,115 +27,217 @@
 </div>
     <div class="nav">
         <div class="nav-left">
-            <div class="nav-item is-active">
+            <div class="nav-item is-active" data-id="1">
                 常见问题
             </div>
-            <div class="nav-item has-margin">
+            <div class="nav-item has-margin" data-id="2">
                 知识手册
             </div>
         </div>
         <div class="nav-right">
-            <div class="kf-btn">
+            <div class="kf-btn" id="kfBtn">
                 <img src="../images/kf@2x.png" class="kf-btn__icon">
                 <span class="kf-btn__text">人工客服</span>
             </div>
         </div>
+        <div class="kf-pop" id="kfPop" style="display: none;">
+            <img src="" class="kf-pop__img">
+            <div class="kf-pop__text">微信扫码联系</div>
+        </div>
     </div>
-    <div class="main-top">
+    <div class="main mCustomScrollbar" id="main">
         <div class="search__wrapper">
+            <img src="../images/close@2x.png" class="search__close" style="display: none;" id="searchClose">
             <div class="search__inner" id="searchInner">
                 <div class="search__left">
                     <img src="../images/search@2x.png" class="search__icon">
-				</div>
-                    <div class="search__middle">
-                        <input class="search__input" id="searchInput" type="" name="" placeholder="请描述您的问题">
-                        <ul class="search-relate" id="searchRelate" style="display: none">
-                            <li class="search-relate__item ellipsis" title="打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所">
-                                打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所
-                            </li>
-                            <li class="search-relate__item ellipsis" title="打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所">
-                                打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所
-                            </li>
-                            <li class="search-relate__item ellipsis" title="打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所">
-                                打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="search__right">
-                        搜索
-                    </div>
+                </div>
+                <div class="search__middle">
+                    <input class="search__input" id="searchInput" type="" name="" placeholder="请描述您的问题">
+                    <ul class="search-relate" id="searchRelate" style="display: none">
+                        <li class="search-relate__item ellipsis" title="打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所">
+                            打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所
+                        </li>
+                        <li class="search-relate__item ellipsis" title="打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所">
+                            打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所
+                        </li>
+                        <li class="search-relate__item ellipsis" title="打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所">
+                            打印小票 打印小票机 打印小票机坏了 打印小票单据少时诵诗书所所所所所所所所
+                        </li>
+                    </ul>
+                </div>
+                <div class="search__right">
+                    搜索
                 </div>
             </div>
-            <div class="tag__wrapper clearfix">
-                <div class="tag__item">标价签</div>
-                <div class="tag__item">小票</div>
-                <div class="tag__item">支付</div>
-                <div class="tag__item">反结账</div>
-                <div class="tag__item">对接外卖</div>
-                <div class="tag__item is-last">改价</div>
+        </div>
+
+        <div class="tag__wrapper clearfix" id="tagWrapper">
+            <div class="tag__item">标价签</div>
+            <div class="tag__item">小票</div>
+            <div class="tag__item">支付</div>
+            <div class="tag__item">反结账</div>
+            <div class="tag__item">对接外卖</div>
+            <div class="tag__item is-last">改价</div>
+        </div>
+        <!-- 常见问题 -->
+        <div class="common-problem" id="commonProblem">
+            <div class="common-problem__header">
+                <img class="common-problem__icon" src="../images/light@2x.png">
+                <h1 class="common-problem__title">常见问题</h1>
             </div>
-            <div class="common-problem" style="display: none;">
-                <div class="common-problem__header">
-                    <img class="common-problem__icon" src="../images/light@2x.png">
-                    <h1 class="common-problem__title">常见问题</h1>
+            <div class="common-problem__main">
+                <div class="common-problem__nav clearfix">
+                    <div class="common-problem__nav-item is-active">入门</div>
+                    <div class="common-problem__nav-item">硬件对接</div>
+                    <div class="common-problem__nav-item">应用对接</div>
+                    <div class="common-problem__nav-item">结账收银</div>
+                    <div class="common-problem__nav-item">进出货管理</div>
+                    <div class="common-problem__nav-item">会员管理</div>
+                    <div class="common-problem__nav-item is-last">优惠活动</div>
                 </div>
-                <div class="common-problem__main">
-                    <div class="common-problem__nav clearfix">
-                        <div class="common-problem__nav-item is-active">入门</div>
-                        <div class="common-problem__nav-item">硬件对接</div>
-                        <div class="common-problem__nav-item">应用对接</div>
-                        <div class="common-problem__nav-item">结账收银</div>
-                        <div class="common-problem__nav-item">进出货管理</div>
-                        <div class="common-problem__nav-item">会员管理</div>
-                        <div class="common-problem__nav-item is-last">优惠活动</div>
-                    </div>
-                    <div class="">
-                        <div>
-                            <div class="common-problem__item">
-                                <div class="common-problem__left">
-                                    1
-                                </div>
-                                <div class="common-problem__middle ellipsis">
-                                    如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签
-                                </div>
-                                <div class="common-problem__right">
-                                    <span>453</span>个用户认为有帮助
-                                </div>
+                <div class="">
+                    <div>
+                        <div class="common-problem__item">
+                            <div class="common-problem__left">
+                                1
+                            </div>
+                            <div class="common-problem__middle ellipsis">
+                                如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签
+                            </div>
+                            <div class="common-problem__right">
+                                <span>453</span>个用户认为有帮助
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="problem-list">
-                <div class="problem-list__header clearfix">
-                    <div class="problem-list__title">搜索历史</div>
-                    <div class="problem-list__clean">清空</div>
-                </div>
-                <div class="problem-list__main">
-                	<div>
-	                    <div class="problem-list__item">
-	                        <div class="problem-list__left ellipsis">
-	                            如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签
-	                        </div>
-	                        <div class="problem-list__right">
-	                            <span>453</span>个用户认为有帮助
-	                        </div>
-	                    </div>
-	                    <div class="problem-detail">
-	                    	<div class="problem-detail__content">
-	                    		银豹的小票（收银、厨打）内容可支持后台自定义编辑，可以设置字体的大小和需要显示的内容信息。 操作步骤：进入云后台，点击【设置】--【票据打印设置】--【厨打小票】\【收银小票】点击编辑，可以切换模板，调整内部参数的内容。例如，[[]] 符号指字体高度翻倍，[[#{店名}]] 可以使得显示的店名会拉高；[%%]指字体高度和宽度翻倍，例如[%#{店名}%] 显示的店名会放大一倍。具体点击模板右边的参数字典查看，可以查看所有可以打印的参数信息。也可添加logo，图片等。 详情请参考：
-	                    	</div>
-
-	                    	<div class="problem-detail__tips">
-	                    		<span>是否有帮助？</span>
-	                    	</div>
-	                    </div>
+        </div>
+        <!-- 搜索结果 -->
+        <div class="problem-list" id="historyProblem" style="display: none;">
+            <div class="problem-list__header clearfix">
+                <div class="problem-list__title">搜索历史</div>
+                <div class="problem-list__clean">清空</div>
+            </div>
+            <div class="problem-list__main">
+                <div>
+                    <div class="problem-list__item">
+                        <div class="problem-list__left ellipsis">
+                            如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签如何打印标签
+                        </div>
+                        <div class="problem-list__right">
+                            <span>453</span>个用户认为有帮助
+                        </div>
+                    </div>
+                    <div class="problem-detail">
+                        <div class="problem-detail__content">
+                            银豹的小票（收银、厨打）内容可支持后台自定义编辑，可以设置字体的大小和需要显示的内容信息。 操作步骤：进入云后台，点击【设置】--【票据打印设置】--【厨打小票】\【收银小票】点击编辑，可以切换模板，调整内部参数的内容。例如，[[]] 符号指字体高度翻倍，[[#{店名}]] 可以使得显示的店名会拉高；[%%]指字体高度和宽度翻倍，例如[%#{店名}%] 显示的店名会放大一倍。具体点击模板右边的参数字典查看，可以查看所有可以打印的参数信息。也可添加logo，图片等。 详情请参考：
+                        </div>
+                        <div class="problem-detail__tips">
+                            <span>是否有帮助？</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- 知识手册 -->
+        <div class="handbook" id="handbook">
+            <div class="handbook__header">
+                <img class="handbook__icon" src="../images/book@2x.png">
+                <h1 class="handbook__title">知识手册</h1>
+            </div>
+            <div class="handbook__main clearfix">
+                <div class="handbook-item">
+                    <div class="handbook-item__title">
+                        操作指南
+                    </div>
+                    <ul class="handbook-item__list">
+                        <li>
+                            <a href="//www.baidu.com" target="_blank" class="ellipsis">新手入门</a>
+                        </li>
+                        <li>
+                            <a href="">场景指引</a>
+                        </li>
+                        <li>
+                            <a href="">基础功能</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="handbook-item">
+                    <div class="handbook-item__title">
+                        操作指南
+                    </div>
+                    <ul class="handbook-item__list">
+                        <li>
+                            <a href="//www.baidu.com" target="_blank" class="ellipsis">新手入门</a>
+                        </li>
+                        <li>
+                            <a href="">场景指引</a>
+                        </li>
+                        <li>
+                            <a href="">基础功能</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="handbook-item">
+                    <div class="handbook-item__title">
+                        操作指南
+                    </div>
+                    <ul class="handbook-item__list">
+                        <li>
+                            <a href="//www.baidu.com" target="_blank" class="ellipsis">新手入门</a>
+                        </li>
+                        <li>
+                            <a href="">场景指引</a>
+                        </li>
+                        <li>
+                            <a href="">基础功能</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="handbook-item">
+                    <div class="handbook-item__title">
+                        操作指南
+                    </div>
+                    <ul class="handbook-item__list">
+                        <li>
+                            <a href="//www.baidu.com" target="_blank" class="ellipsis">新手入门</a>
+                        </li>
+                        <li>
+                            <a href="">场景指引</a>
+                        </li>
+                        <li>
+                            <a href="">基础功能</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="handbook-item">
+                    <div class="handbook-item__title">
+                        操作指南
+                    </div>
+                    <ul class="handbook-item__list">
+                        <li>
+                            <a href="//www.baidu.com" target="_blank" class="ellipsis">新手入门</a>
+                        </li>
+                        <li>
+                            <a href="">场景指引</a>
+                        </li>
+                        <li>
+                            <a href="">基础功能</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="../libs/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../libs/jquery.mCustomScrollbar.js"></script>
+    <div class="white-mask" id="whiteMask" style="display: none;">
+	
+</div>
+    <script type="text/javascript" src="../js/index.js"></script>
 </body>
-<script type="text/javascript" src="../js/index.js"></script>
 
 </html>

@@ -1,10 +1,18 @@
+.a, .a:link, .a:visited, .a:hover, .a:active {
+  text-decoration: none;
+  color: inherit; }
+
+body {
+  overflow: hidden; }
+
 i {
   display: inline-block; }
 
 .nav {
   height: 61px;
   background: #fff;
-  border-bottom: 1px solid #ebebeb; }
+  border-bottom: 1px solid #ebebeb;
+  position: relative; }
 
 .nav-left {
   padding-left: 30px;
@@ -29,14 +37,30 @@ i {
   .nav-item.has-margin {
     margin-left: 55px; }
 
+.kf-pop {
+  position: absolute;
+  padding: 14px 14px 27px 14px;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.06);
+  border: 1px solid #E4E4E4;
+  right: 30px;
+  top: 68px; }
+
+.kf-pop__img {
+  width: 172px;
+  height: 172px;
+  margin-bottom: 9px; }
+
+.kf-pop__text {
+  text-align: center;
+  color: #000;
+  font-size: 16px; }
+
 .kf-btn {
   padding: 7.5px 18px;
   border-radius: 2px;
   border: 1px solid #E4E4E4;
   cursor: pointer; }
-  .kf-btn:active {
-    opacity: .7;
-    filter: alpha(opacity=70); }
 
 .kf-btn__icon {
   width: 17px;
@@ -49,12 +73,25 @@ i {
   color: #666;
   vertical-align: middle; }
 
-.main-top {
-  position: relative; }
+.main {
+  position: relative;
+  overflow: auto; }
 
 .search__wrapper {
   padding-top: 56px;
-  padding-bottom: 14px; }
+  padding-bottom: 14px;
+  width: 900px;
+  margin: 0 auto;
+  position: relative; }
+
+.search__close {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  padding: 10px;
+  cursor: pointer; }
 
 .search__inner {
   margin: 0 auto;
@@ -265,3 +302,53 @@ i {
 .problem-detail__tips span {
   font-size: 14px;
   color: #000; }
+
+.handbook {
+  width: 910px;
+  margin: 0 auto; }
+
+.handbook__header {
+  margin-bottom: 15px; }
+
+.handbook__icon {
+  width: 24px;
+  height: 21px;
+  margin-right: 16px;
+  margin-top: 3px; }
+
+.handbook__title {
+  display: inline;
+  font-size: 20px;
+  font-weight: 600; }
+
+.handbook-item {
+  float: left;
+  width: 217px;
+  height: 398px;
+  margin-bottom: 26px;
+  margin-right: 10px;
+  border: 1px solid #E4E4E4;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.06);
+  border-radius: 2px;
+  padding-top: 19px; }
+
+.handbook-item__title {
+  font-size: 18px;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 17px; }
+  .handbook-item__title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 2px;
+    height: 18px;
+    background-color: #0099CC; }
+
+.handbook-item__list li {
+  padding: 0 18px 10px 18px; }
+  .handbook-item__list li a {
+    display: block;
+    color: #666;
+    font-size: 15px; }

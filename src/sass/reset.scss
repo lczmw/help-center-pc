@@ -128,33 +128,9 @@ noscript,
     font-size: 16px
 }
 
-.clear {
-    clear: both;
-    height: 0;
-    line-height: 0;
-    font-size: 0;
-    overflow: hidden
-}
-
-.clearfix {
-    *zoom: 1
-}
-
-.clearfix:after {
-    content: "\20";
-    clear: both;
-    height: 0;
-    display: block;
-    overflow: hidden
-}
 
 button {
     -webkit-appearance: none;
     border-radius: 0
 }
 
-.ellipsis{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}

@@ -1,0 +1,23 @@
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:after {
+  content: "\20";
+  clear: both;
+  height: 0;
+  display: block;
+  overflow: hidden; }
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.white-mask {
+  position: fixed;
+  z-index: 6041698;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff; }
