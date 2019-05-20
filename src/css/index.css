@@ -1,4 +1,8 @@
-.a, .a:link, .a:visited, .a:hover, .a:active {
+.a,
+.a:link,
+.a:visited,
+.a:hover,
+.a:active {
   text-decoration: none;
   color: inherit; }
 
@@ -13,6 +17,21 @@ i {
   background: #fff;
   border-bottom: 1px solid #ebebeb;
   position: relative; }
+
+.nav-position {
+  position: absolute;
+  bottom: -32px;
+  left: 30px; }
+  .nav-position span {
+    font-size: 14px;
+    color: #666;
+    vertical-align: middle; }
+
+.nav-position__arrow {
+  width: 5px;
+  height: 8px;
+  vertical-align: middle;
+  margin: 0 8px; }
 
 .nav-left {
   padding-left: 30px;

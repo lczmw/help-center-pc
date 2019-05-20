@@ -9,11 +9,12 @@ var index = (function(win) {
             this.initStaticPage();
             this.resizeMainAreaHeight();
             // this.initScrollbar();
-
+            this.initNavPosition();
 
            
         },
         currentNavId: "1",
+        isSearching: false,
         //选择器
         selector: {
             main: $("#main"),
@@ -27,6 +28,7 @@ var index = (function(win) {
             handbook: $("#handbook"),
             kfPop: $("#kfPop"),
             kfBtn: $("#kfBtn"),
+            navPosition: $("#navPosition"),
             navItems: $(".nav-item"),
         },
         //API
@@ -40,6 +42,9 @@ var index = (function(win) {
                     Page.selector.searchInner.addClass('is-active');
                     Page.selector.historyProblem.show();
                     Page.selector.searchClose.show();
+                    Page.isSearching = true;
+                    Page.initNavPosition();
+
                     if (Page.currentNavId === '1') {
                         Page.selector.commonProblem.hide();
                     } else {
@@ -68,7 +73,8 @@ var index = (function(win) {
                     Page.selector.searchInner.removeClass('is-active');
                     Page.selector.historyProblem.hide();
                     Page.selector.searchClose.hide();
-
+                    Page.isSearching = false;
+                    Page.initNavPosition();
                     if (Page.currentNavId === '1') {
                         Page.selector.commonProblem.show();
                     } else {
@@ -80,7 +86,9 @@ var index = (function(win) {
                 Page.selector.navItems.on('click', function(ev) {
                     var id = $(this).attr('data-id');
                     Page.currentNavId = id;
+                    Page.isSearching = false;
                     Page.initStaticPage();
+                    Page.initNavPosition();
                 })
             },
             mousekfBtn: function() {
@@ -127,9 +135,13 @@ var index = (function(win) {
             Page.selector.main.mCustomScrollbar();
         },
         removeMask: function() {
-            console.log(123)
+        
             var ele = document.getElementById("whiteMask");
             document.body.removeChild(ele);
+        },
+        initNavPosition: function() {
+            var str = '<span>帮助中心</span><img class="nav-position__arrow" src="../images/arrow@2x.png"><span>'+ (this.currentNavId === '1' ? '常见问题' : '知识手册') +'</span>' + (this.isSearching ? '<img class="nav-position__arrow" src="../images/arrow@2x.png"><span>搜索</span>' : '');
+            this.selector.navPosition.html(str);
         },
         //注入所有ajax请求，页面所有请求，将在这里统一管理，建议命名规范：ajax_命名，例 ajax_login
         /*
